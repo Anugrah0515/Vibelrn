@@ -135,15 +135,3 @@ celery -A app.celery_worker worker --loglevel=info
 - OpenAI failures or missing enrichment
   - Ensure `OPENAI_API_KEY` is set. Check network access and API quota.
 
-Next steps / Improvements
-------------------------
-- Make OpenAI enrichment asynchronous (move into a Celery task) to avoid request latency.
-- Switch to a persistent DB (SQLite file, PostgreSQL) for production and for sharing data with Celery workers.
-- Add unit tests around the SQL logic and endpoint responses.
-- Add a `requirements.txt` for reproducible installs.
-
-If you'd like I can (pick one):
-- Add a `requirements.txt` with pinned versions
-- Switch the DB to a file-based SQLite by updating `app/database.py` and restarting the server
-- Move LLM enrichment into a background Celery task
-
